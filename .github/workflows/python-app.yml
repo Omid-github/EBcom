@@ -25,6 +25,10 @@ jobs:
         pip install pytest
         pip install -r requirements.txt
 
+    - name: List files in tests directory
+      run: |
+        dir AppiumEwano
+
     - name: Run tests
       run: |
-        python tests/test_BalancePurchase.py
+        python AppiumEwano/tests/test_BalancePurchase.py
