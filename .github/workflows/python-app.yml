@@ -28,6 +28,10 @@ jobs:
     - name: Set PYTHONPATH
       run: |
         echo "PYTHONPATH=$(pwd)/AppiumEwano:$(pwd)/AppiumEwano/pages" >> $GITHUB_ENV
+     
+    - name: Verify PYTHONPATH
+      run: |
+        echo $PYTHONPATH
 
     - name: Verify PYTHONPATH
       run: |
@@ -38,6 +42,7 @@ jobs:
         ls AppiumEwano/tests
 
     - name: Run tests
+      env:
+        PYTHONPATH: ${{ env.PYTHONPATH }}
       run: |
         python AppiumEwano/tests/test_BalancePurchase.py
-
