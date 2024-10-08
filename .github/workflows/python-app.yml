@@ -43,7 +43,8 @@ jobs:
         
 
     - name: Run tests
+      shell: pwsh
       run: |
-        export PYTHONPATH=$(pwd)/AppiumEwano:$(pwd)/AppiumEwano/pages
-        echo "PYTHONPATH is set to: $PYTHONPATH"
-        python -m AppiumEwano.tests.test_BalancePurchase
+        $env:PYTHONPATH = "$(pwd)/AppiumEwano;$(pwd)/AppiumEwano/pages"
+        echo "PYTHONPATH is set to: $env:PYTHONPATH"
+        python AppiumEwano/tests/test_BalancePurchase.py
