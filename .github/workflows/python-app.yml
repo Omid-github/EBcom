@@ -41,9 +41,9 @@ jobs:
       run: |
         ls AppiumEwano/tests
         
+
     - name: Run tests
-      env:
-        PYTHONPATH: ${{ github.workspace }}/AppiumEwano:${{ github.workspace }}/AppiumEwano/Pages
       run: |
+        export PYTHONPATH=$(pwd)/AppiumEwano:$(pwd)/AppiumEwano/pages
         echo "PYTHONPATH is set to: $PYTHONPATH"
-        python AppiumEwano/tests/test_BalancePurchase.py
+        python -m AppiumEwano.tests.test_BalancePurchase
