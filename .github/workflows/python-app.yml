@@ -25,9 +25,13 @@ jobs:
         pip install pytest
         pip install -r requirements.txt
         
+    - name: Verify directory structure
+      run: |
+        ls -R AppiumEwano
+
     - name: Set PYTHONPATH
       run: |
-        echo "PYTHONPATH=$(pwd)/AppiumEwano:$(pwd)/AppiumEwano/pages" >> $GITHUB_ENV    
+        echo "PYTHONPATH=$(pwd)/AppiumEwano:$(pwd)/AppiumEwano/pages" >> $GITHUB_ENV
 
     - name: List files in tests directory
       run: |
@@ -35,5 +39,5 @@ jobs:
 
     - name: Run tests
       run: |
-        python AppiumEwano/tests/test_BalancePurchase.py
-        
+        python AppiumEwano
+
