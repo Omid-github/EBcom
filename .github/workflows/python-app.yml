@@ -27,7 +27,7 @@ jobs:
         
     - name: Set PYTHONPATH
       run: |
-        echo "PYTHONPATH=$(pwd)/AppiumEwano:$(pwd)/AppiumEwano/pages" >> $GITHUB_ENV
+        echo "PYTHONPATH=$(pwd)/AppiumEwano:$(pwd)/AppiumEwano/Pages" >> $GITHUB_ENV
      
     - name: Verify PYTHONPATH
       run: |
