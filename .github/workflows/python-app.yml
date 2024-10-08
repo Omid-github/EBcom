@@ -41,6 +41,18 @@ jobs:
       run: |
         ls AppiumEwano/tests
         
+    - name: Start Android Emulator
+      run: |
+        echo "Starting Android Emulator"
+        $ANDROID_HOME/emulator/emulator -avd Pixel_7_API_VanillaIceCream -no-snapshot-load -no-window &
+      env:
+        ANDROID_HOME: ${{ secrets.ANDROID_HOME }}
+
+    - name: Wait for Emulator to start
+      run: |
+        adb wait-for-device
+        adb shell input keyevent 82
+
 
     - name: Run tests
       shell: pwsh
