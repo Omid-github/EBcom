@@ -44,9 +44,9 @@ jobs:
     - name: Start Android Emulator
       run: |
         echo "Starting Android Emulator"
-        $ANDROID_HOME/emulator/emulator -avd Pixel_7_API_VanillaIceCream -no-snapshot-load -no-window &
+        & "$env:ANDROID_HOME\emulator\emulator.exe" -avd Pixel_7_API_VanillaIceCream -no-snapshot-load -no-window &
       env:
-        ANDROID_HOME: ${{ secrets.ANDROID_HOME }}
+        ANDROID_HOME: C:\\Android\\android-sdk
 
     - name: Wait for Emulator to start
       run: |
