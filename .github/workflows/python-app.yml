@@ -27,8 +27,9 @@ jobs:
 
     - name: List files in tests directory
       run: |
-        dir AppiumEwano
+        ls AppiumEwano/tests
 
     - name: Run tests
       run: |
         python AppiumEwano/tests/test_BalancePurchase.py
+        
