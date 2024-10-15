@@ -1,11 +1,13 @@
 name: Python application
 
+
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+  schedule:
+    - cron: '0 */5 * * *'  # Runs every 5 hours
 jobs:
   build:
     runs-on: windows-latest
