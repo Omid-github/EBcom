@@ -6,6 +6,7 @@ on:
     branches:
       - main
       - EbcomQA
+      - EwanoE2E_PWA
   pull_request:
     branches:
       - main
