@@ -11,6 +11,7 @@ on:
     branches:
       - main
       - EbcomQA
+      - EwanoE2E_PWA
 
 jobs:
   cypress-run:
@@ -19,11 +20,11 @@ jobs:
     steps:
       # 1️⃣ Checkout repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # 2️⃣ Setup Node.js v20 with npm caching
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
@@ -39,7 +40,7 @@ jobs:
       # 5️⃣ Upload Cypress screenshots
       - name: Upload Cypress screenshots
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
           path: cypress/screenshots
@@ -47,7 +48,7 @@ jobs:
       # 6️⃣ Upload Cypress videos
       - name: Upload Cypress videos
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
           path: cypress/videos
