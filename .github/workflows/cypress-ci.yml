@@ -16,7 +16,7 @@ on:
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted  # <--- change from ubuntu-latest to self-hosted
 
     steps:
       # 1️⃣ Checkout repository
