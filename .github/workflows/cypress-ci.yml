@@ -1,0 +1,52 @@
+name: Cypress E2E Tests
+
+# Trigger workflow on pushes and pull requests to main or EbcomQA
+on:
+  push:
+    branches:
+      - main
+      - EbcomQA
+  pull_request:
+    branches:
+      - main
+      - EbcomQA
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ Setup Node.js v20 with npm caching
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4️⃣ Run all Cypress tests using your npm script
+      - name: Run Cypress tests
+        run: npm run run-all
+
+      # 5️⃣ Upload Cypress screenshots
+      - name: Upload Cypress screenshots
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      # 6️⃣ Upload Cypress videos
+      - name: Upload Cypress videos
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-videos
+          path: cypress/videos
