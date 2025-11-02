@@ -2,6 +2,7 @@ name: Cypress E2E Tests
 
 # Trigger workflow on pushes and pull requests to main or EbcomQA
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
